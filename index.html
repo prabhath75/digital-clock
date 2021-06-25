@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title>
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap');
+        .clock{
+            font-family: 'Big Shoulders Stencil Display', cursive;
+            text-align: center;
+            font-size: 15rem;
+            color: rgb(205, 241, 222);
+            position: relative;
+            top: 260px;
+            }
+            body{
+                background-image: url(/bg.jpg);
+                background-position: center;
+                background-size: cover;
+                background-repeat:no-repeat ;
+                height: 800px;
+            }
+    </style>
+</head>
+<body>
+
+   <div class="clock"id="clock">00:00:00</div>
+   
+   <script>
+    setInterval(updateClock,1000);
+
+    function updateClock(){
+        let newDate=new Date();
+        let second=newDate.getSeconds();
+        let minute=newDate.getMinutes();
+        let hour=newDate.getHours();
+
+        if(hour<10){hour='0'+hour}
+        if(minute<10){minute='0'+minute}
+        if(second<10){second='0'+second}
+
+        let clock=hour+':'+minute+':'+second;
+        document.getElementById('clock').innerHTML= clock;
+       }
+</script>
+    
+</body>
+</html>
